@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Zixuan Liang</title>
+	<link rel="shortcut icon" href="images/home.png">
+	<link rel="icon" href="images/home.png">
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
+    <link rel="stylesheet" href="libs/font-awesome/css/font-awesome.min.css">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet">
+</head>
+
+<body>
+    <div id="menu-open" class="shadow-large">
+        <i class="fa fa-bars" aria-hidden="true"></i>
+    </div>
+    <div id="menu-close" class="shadow-large">
+            <i class="fa fa-times" aria-hidden="true"></i>
+    </div>
+    <header>	
+        <ul id="menu" class="shadow">
+            <li>
+                <a href="#lead">Top</a>
+            </li>
+            <li>
+                <a href="#about">About</a>
+            </li>
+            <li>
+                <a href="#experience">Experience</a>
+            </li>
+            <li>
+                <a href="#education">Education</a>
+            </li>
+            <li>
+                <a href="#projects">Portfolio</a>
+            </li>
+            <li>
+                <a href="#skills">Skills</a>
+            </li>
+        </ul>
+    </header>
+
+    <div class='clickable-div'>	
+    <div id="lead">
+        <div id="lead-content">
+            <h1>Zixuan Liang</h1>
+            <h2></h2>
+            <a href="resume.pdf" target="_blank" class="btn-rounded-white">Download Resume</a>
+        </div>
+        <!-- End #lead-content -->
+
+        <div id="lead-overlay"></div>
+
+        <div id="lead-down">
+            <span>
+                <i class="fa fa-chevron-down" aria-hidden="true"></i>
+            </span>
+        </div>
+        <!-- End #lead-down -->
+    </div>
+    <!-- End #lead &ensp; -->
+
+    <div id="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h2 class="heading">About Me</h2>
+                </div>
+                <div class="col-md-8" id="about-content">
+                    <p>
+                        A data science and machine learning enthusiast. I can speak Cantonese, Mandarin and English fluently.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End #about -->
+
+    <div id="experience" class="background-alt">
+        <h2 class="heading">Experience</h2>
+        <div id="experience-timeline">
+            <div data-date="May 2018 – " data-location="Visp, Switzerland">
+                <h3>Lonza</h3>
+                <h4>Data Analyst Intern</h4>
+                <p>
+                    Responsibilities include improving, developing the Master Data management process and maintaining the Master Data quality. Improving the Master Data management process efficiency with scripting languages. Built a user-friendly chatbot that is online 24/7 for the purpose of training new employees and handling SAP request inquiries. Visualizing Master Data with interactive dashboard and different kinds of data charts to help managers make more informed decisions.
+                </p>
+            </div>
+
+            <div data-date="Sept 2015 – Sept 2017" data-location="Shanghai, China">
+                <h3>RTBAsia</h3>
+                <h4>Software Engineer</h4>
+                <p>
+                    Research and development work related to machine learning and deep learning, including model design and optimization for neural networks, transfer learning, feature extraction, stochastic optimization and so on. Built Brand Safety System to protect advertisers on demand-side platforms against websites with inappropriate content (e.g. pornography, terrorism). Demo: <a href="https://zixuanliang.com/detect_adult_image"><i class="fa fa-external-link" aria-hidden="true"></i></a>. Trained state-of-the-art convolutional neural networks in face recognition and image classification (e.g. Inception-ResNet) achieving 95%+ accuracy.
+                </p>
+            </div>
+
+        </div>
+    </div>
+    <!-- End #experience -->
+
+    <div id="education">
+        <h2 class="heading">Education</h2>
+        <div class="education-block">
+            <h3>Bern University of Applied Sciences</h3>
+            <span class="education-date">Sept 2017 - Jan 2019</span>
+            <h4>M.Sc. in Computer Science</h4>
+            <p>
+                Advisor: Prof. Jürgen Vogel. GPA: 5.5/6.0.
+            </p>
+        </div>
+        <!-- End .education-block -->
+
+        <div class="education-block">
+            <h3>Zhejiang University</h3>
+            <span class="education-date">Sept 2011 - June 2015</span>
+            <h4>B.Eng. in Electronic &amp; Information Engineering</h4>
+            <p>
+                Graduated with honors. GPA: 3.89/4.0.
+            </p>
+        </div>
+        <!-- End .education-block -->
+    </div>
+    <!-- End #education -->
+
+    <div id="projects" class="background-alt">
+        <h2 class="heading">Portfolio</h2>
+        <div class="container">
+            <div class="row">
+		<div class="project shadow-large">
+                    <div class="project-image">
+                        <img class="resize-image" src="images/practical_convolutional_neural_network.png" />
+                    </div>
+                    <!-- End .project-image -->
+                    <div class="project-info">
+                        <h3>Practical Convolutional Neural Network</h3>
+                        <p>
+                            An open source handbook summarizing my understanding and experience of convolutional neural networks. My goal of writing this handbook is to share it with the community and help others train better deep learning models.
+                        </p>
+                        <a href="https://zixuanliang.com/practical_convolutional_neural_network.pdf" target="_blank">Download</a>
+                    </div>
+                    <!-- End .project-info -->
+                </div>
+                <!-- End .project -->    
+		    
+                <div class="project shadow-large">
+                    <div class="project-image">
+                        <img class="resize-image" src="images/detect_adult_image.png" />
+                    </div>
+                    <!-- End .project-image -->
+                    <div class="project-info">
+                        <h3>Detect Adult Image</h3>
+                        <p>
+                            Detect how likely an image is adult content with deep convolutional neural network. Ratings of the image are from "Safe for sure" to "Explicit adult content for sure".
+                        </p>
+                        <a href="https://zixuanliang.com/detect_adult_image">Demo</a>
+                    </div>
+                    <!-- End .project-info -->
+                </div>
+                <!-- End .project -->
+		    
+		<div class="project shadow-large">
+                    <div class="project-image">
+                        <img class="resize-image" src="images/image_captioning_in_chinese.png" />
+                    </div>
+                    <!-- End .project-image -->
+                    <div class="project-info">
+                        <h3>Image Captioning in Chinese</h3>
+                        <p>
+                           Describe an image with one Chinese sentence using deep convolutional neural network and long short-term memory network (working for images with human activities because of the training dataset <a href="https://bit.ly/2L6elHI" target="_blank"><i class="fa fa-external-link" aria-hidden="true"></i></a>). 
+                        </p>
+                        <a href="https://zixuanliang.com/image_captioning_in_chinese">Demo</a>
+                    </div>
+                    <!-- End .project-info -->
+                </div>
+                <!-- End .project -->
+		    
+		<div class="project shadow-large">
+                    <div class="project-image">
+                        <img class="resize-image" src="images/face_detection.png" />
+                    </div>
+                    <!-- End .project-image -->
+                    <div class="project-info">
+                        <h3>Face Detection</h3>
+                        <p>
+                           Detect human face in an image using deep convolutional neural network. Implemented a novel loss function that enables convolutional neural networks to learn angularly discriminative features.
+                        </p>
+                        <a href="https://zixuanliang.com/face_detection">Demo</a>
+                    </div>
+                    <!-- End .project-info -->
+                </div>
+                <!-- End .project -->
+		
+		<div class="project shadow-large">
+                    <div class="project-image">
+                        <img class="resize-image" src="images/high_dimensional_data_visualization.png" />
+                    </div>
+                    <!-- End .project-image -->
+                    <div class="project-info">
+                        <h3>High-Dimensional Data Visualization</h3>
+                        <p>
+                            A dynamic interactive collapsable tree displaying high-dimensional data grouped by different possible properties. Data source of the demo comes from thousands of ongoing workflows at Lonza.
+                        </p>
+                        <a href="https://zixuanliang.com/high_dimensional_data_visualization">Demo</a>
+                    </div>
+                    <!-- End .project-info -->
+                </div>
+                <!-- End .project -->
+		    
+		<div class="project shadow-large">
+                    <div class="project-image">
+                        <img class="resize-image" src="images/heroes_of_the_storm_matchups.png" />
+                    </div>
+                    <!-- End .project-image -->
+                    <div class="project-info">
+                        <h3>Heroes of the Storm Matchups Visualization</h3>
+                        <p>
+                            Show most popular compositions and counter picks of the MOBA game Hero of the Storm. Data source updated: Master Hero League matches from 04/13/2018 to 05/13/2018.
+                        </p>
+                        <a href="https://zixuanliang.com/heroes_of_the_storm_matchups">Demo</a>
+                    </div>
+                    <!-- End .project-info -->
+                </div>
+                <!-- End .project -->
+		    
+            </div>
+        </div>
+    </div>
+    <!-- End #projects -->
+
+    <div id="skills">
+        <h2 class="heading">Skills</h2>
+        <ul>
+            <li>Python</li>
+            <li>scikit-learn</li>
+            <li>TensorFlow</li>
+            <li>PyTorch</li>
+            <li>Keras</li>
+            <li>OpenCV</li>
+            <li>NLTK</li>
+            <li>SciPy</li>
+            <li>NumPy</li>
+            <li>pandas</li>
+            <li>matplotlib</li>
+            <li>JavaScript</li>
+            <li>D3.js</li>
+            <li>Ruby</li>
+            <li>C</li>
+            <li>C++</li>
+            <li>Java</li>
+            <li>SQL</li>
+            <li>Git</li>
+            <li>LaTex</li>
+        </ul>
+    </div>
+    <!-- End #skills -->
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-5 copyright">
+                    <p>
+                        Copyright &copy; 2018 Zixuan Liang
+                    </p>
+                </div>
+                <div class="col-sm-2 top">
+                    <span id="to-top">
+                        <i class="fa fa-chevron-up" aria-hidden="true"></i>
+                    </span>
+                </div>
+                <div class="col-sm-5 social">
+                    <ul>
+                        <li>
+                            <a href="mailto:zixuan.liang@students.bfh.ch"><i class="fa fa-envelope-square" aria-hidden="true"></i></a>
+                        </li>
+                        <li>
+                            <a href="https://github.com/savageOverflow" target="_blank"><i class="fa fa-github" aria-hidden="true"></i></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- End footer -->
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="js/scripts.js"></script>
+</body>
+
+</html>
