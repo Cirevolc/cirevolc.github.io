@@ -17,7 +17,7 @@ var xCat = "Calories",
 
 d3.csv("crime_rate_by_neighborhood.csv", function(data) {
     data.forEach(function(d) {
-        d.Neighborhood = +d.Neighborhood;
+        d["Neighborhood"] = +d["Neighborhood"];
         d["Crime Rate By Neighborhood"] = +d["Crime Rate By Neighborhood"];
         d.Jitter = +d.Jitter;
     });

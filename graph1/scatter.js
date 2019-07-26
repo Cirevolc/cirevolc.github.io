@@ -17,7 +17,7 @@ var xCat = "Jitter",
 
 d3.csv("crime_rate_by_neighborhood.csv", function(data) {
     data.forEach(function(d) {
-        d.Neighborhood = +d.Neighborhood;
+        d["Neighborhood"] = +d["Neighborhood"];
         d["Crime Rate By Neighborhood"] = +d["Crime Rate By Neighborhood"];
         d.Jitter = +d.Jitter;
     });
@@ -48,7 +48,7 @@ d3.csv("crime_rate_by_neighborhood.csv", function(data) {
         .attr("class", "d3-tip")
         .offset([-10, 0])
         .html(function(d) {
-            return "Neighborhood" + ": " + d.Neighborhood + "<br>" + yCat + ": " + d[yCat];
+            return "Neighborhood" + ": " + d["Neighborhood"] + "<br>" + yCat + ": " + d[yCat];
         });
 
     var zoomBeh = d3.behavior.zoom()
@@ -119,7 +119,7 @@ d3.csv("crime_rate_by_neighborhood.csv", function(data) {
         .classed("dot", true)
         .attr("r", function(d) { return 6 * Math.sqrt(d[rCat] / Math.PI); })
         .attr("transform", transform)
-        .style("fill", function(d) { return color(d.Neighborhood); })
+        .style("fill", function(d) { return color(d["Neighborhood"]); })
         .on("mouseover", tip.show)
         .on("mouseout", tip.hide);
 
