@@ -1,23 +1,23 @@
-﻿Neighborhood,Crime Rate By Neighborhood,Jitter,dummy1,dummy2
-Winthrop,0.074395318,0.01,4,1
-West Roxbury,0.180262972,0.02,4,1
-Somerville,0.005268015,0.03,4,1
-Roxbury Crossing,0.447983292,0.04,4,1
-Roxbury,0.871170963,0.05,4,1
-Roslindale,0.304137527,0.06,4,1
-Revere,0.012142527,0.07,4,1
-Quincy,0.052763981,0.08,4,1
-Milton,0.059668751,0.09,4,1
-Mattapan,0.511597982,0.10,4,1
-Jamaica Plain,0.417056669,0.11,4,1
-Hyde Park,0.195453687,0.12,4,1
-Dorchester Center,0.254692799,0.13,4,1
-Dorchester,0.802873087,0.14,4,1
-Dedham,0.052513640,0.15,4,1
-Chelsea,0.152600884,0.16,4,1
-Charlestown,0.267773288,0.17,4,1
-Cambridge,0.103587550,0.18,4,1
-Brookline,0.035303647,0.19,4,1
-Brighton,0.197837731,0.20,4,1
-Boston,0.363270612,0.21,4,1
-Allston,0.402659393,0.22,4,1
+Neighborhood,Crime Rate By Neighborhood,Jitter,dummy1,dummy2
+Winthrop,0.074395318,1,4,1
+West Roxbury,0.180262972,1,4,1
+Somerville,0.005268015,1,4,1
+Roxbury Crossing,0.447983292,1,4,1
+Roxbury,0.871170963,1,4,1
+Roslindale,0.304137527,1,4,1
+Revere,0.012142527,1,4,1
+Quincy,0.052763981,1,4,1
+Milton,0.059668751,1,4,1
+Mattapan,0.511597982,1,4,1
+Jamaica Plain,0.417056669,1,4,1
+Hyde Park,0.195453687,1,4,1
+Dorchester Center,0.254692799,1,4,1
+Dorchester,0.802873087,1,4,1
+Dedham,0.052513640,1,4,1
+Chelsea,0.152600884,1,4,1
+Charlestown,0.267773288,1,4,1
+Cambridge,0.103587550,1,4,1
+Brookline,0.035303647,1,4,1
+Brighton,0.197837731,1,4,1
+Boston,0.363270612,1,4,1
+Allston,0.402659393,1,4,1
