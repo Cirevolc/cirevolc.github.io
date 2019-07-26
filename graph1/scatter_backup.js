@@ -10,10 +10,10 @@ var x = d3.scale.linear()
 var y = d3.scale.linear()
     .range([height, 0]).nice();
 
-var xCat = "Jitter",
-    yCat = "Crime Rate By Neighborhood",
-    rCat = "dummy1",
-    colorCat = "dummy2";
+var xCat = "Calories",
+    yCat = "Potassium",
+    rCat = "Protein (g)",
+    colorCat = "Manufacturer";
 
 d3.csv("crime_rate_by_neighborhood.csv", function(data) {
     data.forEach(function(d) {
