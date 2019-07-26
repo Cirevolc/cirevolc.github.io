@@ -13,7 +13,7 @@ var y = d3.scale.linear()
 var xCat = "Jitter",
     yCat = "Crime Rate By Neighborhood",
     rCat = "dummy1",
-    colorCat = "dummy2";
+    colorCat = "Neighborhood";
 
 d3.csv("crime_rate_by_neighborhood.csv", function(data) {
     data.forEach(function(d) {
@@ -48,7 +48,7 @@ d3.csv("crime_rate_by_neighborhood.csv", function(data) {
         .attr("class", "d3-tip")
         .offset([-10, 0])
         .html(function(d) {
-            return xCat + ": " + d[xCat] + "<br>" + yCat + ": " + d[yCat];
+            return colorCat + ": " + d[colorCat] + "<br>" + yCat + ": " + d[yCat];
         });
 
     var zoomBeh = d3.behavior.zoom()
