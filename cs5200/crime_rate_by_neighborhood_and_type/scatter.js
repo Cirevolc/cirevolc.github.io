@@ -10,18 +10,20 @@ var x = d3.scale.linear()
 var y = d3.scale.linear()
     .range([height, 0]).nice();
 
-var xCat = "Neighborhood",
-    yCat = "Crime Rate By Neighborhood",
+var xCat = "UCR part1 rate",
+    yCat = "Avg. Crime Rate By Neighborhood",
     rCat = 5,
     colorCat = "Neighborhood";
 
 d3.csv("crime_rate_by_neighborhood.csv", function(data) {
   data.forEach(function(d) {
-    d["Crime Rate By Neighborhood"] = +d["Crime Rate By Neighborhood"];
+    d["UCR part1 rate"] = +d["UCR part1 rate"];
+    d["UCR part3 rate"] = +d["UCR part3 rate"];
+    d["Avg. Crime Rate By Neighborhood"] = +d["Avg. Crime Rate By Neighborhood"];
   });
 
   var xMax = 1,
-      xMin = -1,
+      xMin = -0.1,
       yMax = 1,
       yMin = -0.1;
       // yMax = d3.max(data, function(d) { return d[yCat]; }) * 1.05,
@@ -34,8 +36,7 @@ d3.csv("crime_rate_by_neighborhood.csv", function(data) {
   var xAxis = d3.svg.axis()
       .scale(x)
       .orient("bottom")
-      .tickSize(-height)
-      .style("display", "none");
+      .tickSize(-height);
 
   var yAxis = d3.svg.axis()
       .scale(y)
@@ -48,7 +49,7 @@ d3.csv("crime_rate_by_neighborhood.csv", function(data) {
       .attr("class", "d3-tip")
       .offset([-10, 0])
       .html(function(d) {
-        return xCat + ": " + d[xCat] + "<br>" + yCat + ": " + d[yCat];
+        return colorCat + ": " + d[colorCat] + "<br>" + xCat + ": " + d[xCat] + "<br>" + yCat + ": " + d[yCat];
       });
 
   var zoomBeh = d3.behavior.zoom()
@@ -75,14 +76,12 @@ d3.csv("crime_rate_by_neighborhood.csv", function(data) {
       .classed("x axis", true)
       .attr("transform", "translate(0," + height + ")")
       .call(xAxis)
-      .style("display", "none")
     .append("text")
       .classed("label", true)
       .attr("x", width)
       .attr("y", margin.bottom - 10)
       .style("text-anchor", "end")
-      .text(xCat)
-      .style("display", "none");
+      .text(xCat);
 
   svg.append("g")
       .classed("y axis", true)
@@ -113,8 +112,7 @@ d3.csv("crime_rate_by_neighborhood.csv", function(data) {
       .attr("x1", 0)
       .attr("y1", 0)
       .attr("x2", 0)
-      .attr("y2", height)
-      .style("display", "none");
+      .attr("y2", height);
 
   objects.selectAll(".dot")
       .data(data)
