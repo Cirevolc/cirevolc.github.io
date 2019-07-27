@@ -137,6 +137,8 @@ d3.csv("crime_rate_by_neighborhood_and_type.csv", function (data) {
     .data(data)
     .enter().append("rect")
     .classed("dot2", true)
+    .attr("x", -10)
+    .attr("y", -10)
     .attr("width", 20)
     .attr("height", 20)
     .attr("transform", transform2)
@@ -192,6 +194,6 @@ d3.csv("crime_rate_by_neighborhood_and_type.csv", function (data) {
   }
 
   function transform2(d) {
-    return "translate(" + x(d[xCat2])-10 + "," + y(d[yCat])-10 + ")";
+    return "translate(" + x(d[xCat2]) + "," + y(d[yCat]) + ")";
   }
 });
