@@ -11,7 +11,7 @@ var y = d3.scale.linear()
   .range([height, 0]).nice();
 
 var xCat = "UCR part1 rate",
-  xCat2 = "UCR part3 rate"
+  xCat2 = "UCR part3 rate",
 yCat = "Avg. Crime Rate By Neighborhood",
   rCat = 5,
   colorCat = "Neighborhood";
