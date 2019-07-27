@@ -12,7 +12,7 @@ var y = d3.scale.linear()
 
 var xCat = "UCR part1 rate",
   xCat2 = "UCR part3 rate",
-yCat = "Avg. Crime Rate By Neighborhood",
+  yCat = "Avg. Crime Rate By Neighborhood",
   rCat = 5,
   colorCat = "Neighborhood";
 
@@ -132,7 +132,10 @@ d3.csv("crime_rate_by_neighborhood_and_type.csv", function (data) {
     .style("fill", function (d) { return color(d[colorCat]); })
     .on("mouseover", tip.show)
     .on("mouseout", tip.hide)
-    .append("circle")
+
+    objects.selectAll(".dot")
+    .data(data)
+    .enter().append("circle")
     .classed("dot", true)
     .attr("r", function (d) { return 6 * Math.sqrt(rCat / Math.PI); })
     .attr("transform", transform2)
