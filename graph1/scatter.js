@@ -139,21 +139,21 @@ d3.csv("crime_rate_by_neighborhood.csv", function(data) {
         .attr("dy", ".35em")
         .text(function(d) { return d; });
 
-    d3.select("input").on("click", change);
+    // d3.select("input").on("click", change);
 
-    function change() {
-        xCat = "Carbs";
-        xMax = d3.max(data, function(d) { return d[xCat]; });
-        xMin = d3.min(data, function(d) { return d[xCat]; });
+    // function change() {
+    //     xCat = "Carbs";
+    //     xMax = d3.max(data, function(d) { return d[xCat]; });
+    //     xMin = d3.min(data, function(d) { return d[xCat]; });
 
-        zoomBeh.x(x.domain([xMin, xMax])).y(y.domain([yMin, yMax]));
+    //     zoomBeh.x(x.domain([xMin, xMax])).y(y.domain([yMin, yMax]));
 
-        var svg = d3.select("#scatter").transition();
+    //     var svg = d3.select("#scatter").transition();
 
-        svg.select(".x.axis").duration(750).call(xAxis).select(".label").text(xCat);
+    //     svg.select(".x.axis").duration(750).call(xAxis).select(".label").text(xCat);
 
-        objects.selectAll(".dot").transition().duration(1000).attr("transform", transform);
-    }
+    //     objects.selectAll(".dot").transition().duration(1000).attr("transform", transform);
+    // }
 
     function zoom() {
         svg.select(".x.axis").call(xAxis);
