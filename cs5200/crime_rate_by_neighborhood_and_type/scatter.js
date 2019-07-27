@@ -81,7 +81,7 @@ d3.csv("crime_rate_by_neighborhood_and_type.csv", function(data) {
       .attr("x", width)
       .attr("y", margin.bottom - 10)
       .style("text-anchor", "end")
-      .text(xCat);
+      .text("Crime Rate By Type");
 
   svg.append("g")
       .classed("y axis", true)
@@ -92,7 +92,7 @@ d3.csv("crime_rate_by_neighborhood_and_type.csv", function(data) {
       .attr("y", -margin.left)
       .attr("dy", ".71em")
       .style("text-anchor", "end")
-      .text(yCat);
+      .text("Crime Rate By Neighborhood");
 
   var objects = svg.append("svg")
       .classed("objects", true)
