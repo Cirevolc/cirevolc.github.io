@@ -127,17 +127,18 @@ d3.csv("crime_rate_by_neighborhood_and_type.csv", function (data) {
     .data(data)
     .enter().append("circle")
     .classed("dot", true)
-    .attr("r", function (d) { return 6 * Math.sqrt(rCat / Math.PI); })
+    .attr("r", function (d) { return 10; })
     .attr("transform", transform)
     .style("fill", function (d) { return color(d[colorCat]); })
     .on("mouseover", tip.show)
     .on("mouseout", tip.hide);
 
-    objects.selectAll(".dot2")
+  objects.selectAll(".dot2")
     .data(data)
-    .enter().append("circle")
+    .enter().append("rect")
     .classed("dot2", true)
-    .attr("r", function (d) { return 6 * Math.sqrt(rCat / Math.PI); })
+    .attr("width", 50)
+    .attr("height", 100);
     .attr("transform", transform2)
     .style("fill", function (d) { return color(d[colorCat]); })
     .on("mouseover", tip2.show)
@@ -182,7 +183,7 @@ d3.csv("crime_rate_by_neighborhood_and_type.csv", function (data) {
     svg.selectAll(".dot")
       .attr("transform", transform);
 
-      svg.selectAll(".dot2")
+    svg.selectAll(".dot2")
       .attr("transform", transform2);
   }
 
