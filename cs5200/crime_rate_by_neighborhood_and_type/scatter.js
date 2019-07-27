@@ -131,11 +131,8 @@ d3.csv("crime_rate_by_neighborhood_and_type.csv", function (data) {
     .attr("transform", transform)
     .style("fill", function (d) { return color(d[colorCat]); })
     .on("mouseover", tip.show)
-    .on("mouseout", tip.hide);
-
-  objects.selectAll(".dot")
-    .data(data)
-    .enter().append("circle")
+    .on("mouseout", tip.hide)
+    .append("circle")
     .classed("dot", true)
     .attr("r", function (d) { return 6 * Math.sqrt(rCat / Math.PI); })
     .attr("transform", transform2)
