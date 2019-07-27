@@ -164,6 +164,6 @@ d3.csv("crime_rate_by_neighborhood.csv", function(data) {
   }
 
   function transform(d) {
-    return "translate(" + x(0) + "," + y(d[yCat]) + ")";
+    return "translate(" + x(Math.random() * 0.1) + "," + y(d[yCat]) + ")";
   }
 });
