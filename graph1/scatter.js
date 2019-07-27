@@ -10,30 +10,18 @@ var x = d3.scale.linear()
 var y = d3.scale.linear()
     .range([height, 0]).nice();
 
-var xCat = "Calories",
-    yCat = "Potassium",
-    rCat = "Protein (g)",
-    colorCat = "Manufacturer";
+var xCat = "Neighborhood",
+    yCat = "Crime Rate By Neighborhood",
+    rCat = 5,
+    colorCat = "Neighborhood";
 
-d3.csv("cereal.csv", function(data) {
+d3.csv("crime_rate_by_neighborhood.csv", function(data) {
   data.forEach(function(d) {
-    d.Calories = +d.Calories;
-    d.Carbs = +d.Carbs;
-    d["Cups per Serving"] = +d["Cups per Serving"];
-    d["Dietary Fiber"] = +d["Dietary Fiber"];
-    d["Display Shelf"] = +d["Display Shelf"];
-    d.Fat = +d.Fat;
-    d.Potassium = +d.Potassium;
-    d["Protein (g)"] = +d["Protein (g)"];
-    d["Serving Size Weight"] = +d["Serving Size Weight"];
-    d.Sodium = +d.Sodium;
-    d.Sugars = +d.Sugars;
-    d["Vitamins and Minerals"] = +d["Vitamins and Minerals"];
+    d["Crime Rate By Neighborhood"] = +d["Crime Rate By Neighborhood"];
   });
 
-  var xMax = d3.max(data, function(d) { return d[xCat]; }) * 1.05,
-      xMin = d3.min(data, function(d) { return d[xCat]; }),
-      xMin = xMin > 0 ? 0 : xMin,
+  var xMax = 1,
+      xMin = -1,
       yMax = d3.max(data, function(d) { return d[yCat]; }) * 1.05,
       yMin = d3.min(data, function(d) { return d[yCat]; }),
       yMin = yMin > 0 ? 0 : yMin;
@@ -51,7 +39,7 @@ d3.csv("cereal.csv", function(data) {
       .orient("left")
       .tickSize(-width);
 
-  var color = d3.scale.category10();
+  var color = d3.scale.category20();
 
   var tip = d3.tip()
       .attr("class", "d3-tip")
@@ -84,12 +72,14 @@ d3.csv("cereal.csv", function(data) {
       .classed("x axis", true)
       .attr("transform", "translate(0," + height + ")")
       .call(xAxis)
+      .style("display", "none")
     .append("text")
       .classed("label", true)
       .attr("x", width)
       .attr("y", margin.bottom - 10)
       .style("text-anchor", "end")
-      .text(xCat);
+      .text(xCat)
+      .style("display", "none");
 
   svg.append("g")
       .classed("y axis", true)
@@ -120,13 +110,14 @@ d3.csv("cereal.csv", function(data) {
       .attr("x1", 0)
       .attr("y1", 0)
       .attr("x2", 0)
-      .attr("y2", height);
+      .attr("y2", height)
+      .style("display", "none");
 
   objects.selectAll(".dot")
       .data(data)
     .enter().append("circle")
       .classed("dot", true)
-      .attr("r", function (d) { return 6 * Math.sqrt(d[rCat] / Math.PI); })
+      .attr("r", function (d) { return 6 * Math.sqrt(rCat / Math.PI); })
       .attr("transform", transform)
       .style("fill", function(d) { return color(d[colorCat]); })
       .on("mouseover", tip.show)
@@ -148,21 +139,21 @@ d3.csv("cereal.csv", function(data) {
       .attr("dy", ".35em")
       .text(function(d) { return d; });
 
-  d3.select("input").on("click", change);
+  // d3.select("input").on("click", change);
 
-  function change() {
-    xCat = "Carbs";
-    xMax = d3.max(data, function(d) { return d[xCat]; });
-    xMin = d3.min(data, function(d) { return d[xCat]; });
+  // function change() {
+  //   xCat = "Carbs";
+  //   xMax = d3.max(data, function(d) { return d[xCat]; });
+  //   xMin = d3.min(data, function(d) { return d[xCat]; });
 
-    zoomBeh.x(x.domain([xMin, xMax])).y(y.domain([yMin, yMax]));
+  //   zoomBeh.x(x.domain([xMin, xMax])).y(y.domain([yMin, yMax]));
 
-    var svg = d3.select("#scatter").transition();
+  //   var svg = d3.select("#scatter").transition();
 
-    svg.select(".x.axis").duration(750).call(xAxis).select(".label").text(xCat);
+  //   svg.select(".x.axis").duration(750).call(xAxis).select(".label").text(xCat);
 
-    objects.selectAll(".dot").transition().duration(1000).attr("transform", transform);
-  }
+  //   objects.selectAll(".dot").transition().duration(1000).attr("transform", transform);
+  // }
 
   function zoom() {
     svg.select(".x.axis").call(xAxis);
@@ -173,6 +164,6 @@ d3.csv("cereal.csv", function(data) {
   }
 
   function transform(d) {
-    return "translate(" + x(d[xCat]) + "," + y(d[yCat]) + ")";
+    return "translate(" + x(0) + "," + y(d[yCat]) + ")";
   }
 });
