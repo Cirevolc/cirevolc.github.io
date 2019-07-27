@@ -22,9 +22,11 @@ d3.csv("crime_rate_by_neighborhood.csv", function(data) {
 
   var xMax = 1,
       xMin = -1,
-      yMax = d3.max(data, function(d) { return d[yCat]; }) * 1.05,
-      yMin = d3.min(data, function(d) { return d[yCat]; }),
-      yMin = yMin > 0 ? 0 : yMin;
+      yMax = 1,
+      yMin = -0.1;
+      // yMax = d3.max(data, function(d) { return d[yCat]; }) * 1.05,
+      // yMin = d3.min(data, function(d) { return d[yCat]; }),
+      // yMin = yMin > 0 ? 0 : yMin;
 
   x.domain([xMin, xMax]);
   y.domain([yMin, yMax]);
