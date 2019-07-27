@@ -123,20 +123,20 @@ d3.csv("crime_rate_by_neighborhood_and_type.csv", function (data) {
     .attr("x2", 0)
     .attr("y2", height);
 
-  // objects.selectAll(".dot")
-  //   .data(data)
-  //   .enter().append("circle")
-  //   .classed("dot", true)
-  //   .attr("r", function (d) { return 6 * Math.sqrt(rCat / Math.PI); })
-  //   .attr("transform", transform)
-  //   .style("fill", function (d) { return color(d[colorCat]); })
-  //   .on("mouseover", tip.show)
-  //   .on("mouseout", tip.hide);
-
-    objects.selectAll(".dot")
+  objects.selectAll(".dot")
     .data(data)
     .enter().append("circle")
     .classed("dot", true)
+    .attr("r", function (d) { return 6 * Math.sqrt(rCat / Math.PI); })
+    .attr("transform", transform)
+    .style("fill", function (d) { return color(d[colorCat]); })
+    .on("mouseover", tip.show)
+    .on("mouseout", tip.hide);
+
+    objects.selectAll(".dot2")
+    .data(data)
+    .enter().append("circle")
+    .classed("dot2", true)
     .attr("r", function (d) { return 6 * Math.sqrt(rCat / Math.PI); })
     .attr("transform", transform2)
     .style("fill", function (d) { return color(d[colorCat]); })
@@ -180,6 +180,9 @@ d3.csv("crime_rate_by_neighborhood_and_type.csv", function (data) {
     svg.select(".y.axis").call(yAxis);
 
     svg.selectAll(".dot")
+      .attr("transform", transform);
+
+      svg.selectAll(".dot2")
       .attr("transform", transform);
   }
 
