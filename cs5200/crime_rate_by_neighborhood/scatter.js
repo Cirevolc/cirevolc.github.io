@@ -34,8 +34,7 @@ d3.csv("crime_rate_by_neighborhood.csv", function(data) {
   var xAxis = d3.svg.axis()
       .scale(x)
       .orient("bottom")
-      .tickSize(-height)
-      .style("display", "none");
+      .tickSize(-height);
 
   var yAxis = d3.svg.axis()
       .scale(y)
