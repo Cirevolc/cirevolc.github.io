@@ -183,7 +183,7 @@ d3.csv("crime_rate_by_neighborhood_and_type.csv", function (data) {
       .attr("transform", transform);
 
       svg.selectAll(".dot2")
-      .attr("transform", transform);
+      .attr("transform", transform2);
   }
 
   function transform(d) {
