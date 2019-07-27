@@ -176,16 +176,16 @@ d3.csv("crime_rate_by_neighborhood_and_type.csv", function (data) {
   //   objects.selectAll(".dot").transition().duration(1000).attr("transform", transform);
   // }
 
-  // function zoom() {
-  //   svg.select(".x.axis").call(xAxis);
-  //   svg.select(".y.axis").call(yAxis);
+  function zoom() {
+    svg.select(".x.axis").call(xAxis);
+    svg.select(".y.axis").call(yAxis);
 
-  //   svg.selectAll(".dot")
-  //     .attr("transform", transform);
+    svg.selectAll(".dot")
+      .attr("transform", transform);
 
-  //   svg.selectAll(".dot2")
-  //     .attr("transform", transform2);
-  // }
+    svg.selectAll(".dot2")
+      .attr("transform", transform2);
+  }
 
   function transform(d) {
     return "translate(" + x(d[xCat]) + "," + y(d[yCat]) + ")";
