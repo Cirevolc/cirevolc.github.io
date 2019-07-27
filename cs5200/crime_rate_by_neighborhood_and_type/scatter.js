@@ -15,7 +15,7 @@ var xCat = "UCR part1 rate",
     rCat = 5,
     colorCat = "Neighborhood";
 
-d3.csv("crime_rate_by_neighborhood.csv", function(data) {
+d3.csv("crime_rate_by_neighborhood_and_type.csv", function(data) {
   data.forEach(function(d) {
     d["UCR part1 rate"] = +d["UCR part1 rate"];
     d["UCR part3 rate"] = +d["UCR part3 rate"];
