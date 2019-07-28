@@ -170,6 +170,6 @@ var svg = d3.select("#my_dataviz");
 
 // Handmade legend
 svg.append("circle").attr("cx",200).attr("cy",130).attr("r", 6);
-svg.append("rect").attr("cx",200).attr("cy",160).attr("width", 12).attr("height", 12);
+svg.append("rect").attr("x",194).attr("y",154).attr("width", 12).attr("height", 12);
 svg.append("text").attr("x", 220).attr("y", 130).text("Crime of Part 1").style("font-size", "15px").attr("alignment-baseline","middle");
-svg.append("text").attr("x", 220).attr("y", 160).text("Crime of Part 2").style("font-size", "15px").attr("alignment-baseline","middle");
+svg.append("text").attr("x", 220).attr("y", 160).text("Crime of Part 3").style("font-size", "15px").attr("alignment-baseline","middle");
