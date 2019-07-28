@@ -146,38 +146,6 @@ d3.csv("crime_rate_by_neighborhood_and_type.csv", function (data) {
     .on("mouseover", tip2.show)
     .on("mouseout", tip2.hide);
 
-  var legend = svg.selectAll(".legend")
-    .data(color.domain())
-    .enter().append("g")
-    .classed("legend", true)
-    .attr("transform", function (d, i) { return "translate(0," + i * 20 + ")"; });
-
-  legend.append("circle")
-    .attr("r", 3.5)
-    .attr("cx", width + 20)
-    .attr("fill", color);
-
-  legend.append("text")
-    .attr("x", width + 26)
-    .attr("dy", ".35em")
-    .text(function (d) { return d; });
-
-  // d3.select("input").on("click", change);
-
-  // function change() {
-  //   xCat = "Carbs";
-  //   xMax = d3.max(data, function(d) { return d[xCat]; });
-  //   xMin = d3.min(data, function(d) { return d[xCat]; });
-
-  //   zoomBeh.x(x.domain([xMin, xMax])).y(y.domain([yMin, yMax]));
-
-  //   var svg = d3.select("#scatter").transition();
-
-  //   svg.select(".x.axis").duration(750).call(xAxis).select(".label").text(xCat);
-
-  //   objects.selectAll(".dot").transition().duration(1000).attr("transform", transform);
-  // }
-
   function zoom() {
     svg.select(".x.axis").call(xAxis);
     svg.select(".y.axis").call(yAxis);
@@ -197,16 +165,11 @@ d3.csv("crime_rate_by_neighborhood_and_type.csv", function (data) {
     return "translate(" + x(d[xCat2]) + "," + y(d[yCat]) + ")";
   }
 });
-
+// select the svg area
 var svg = d3.select("#scatter");
-var legend = svg.selectAll(".legend");
-legend.append("rect")
-  .attr("width", 7)
-  .attr("height", 7)
-  .attr("cx", width + 150);
-legend.append("text")
-  .attr("x", width + 156)
-  .attr("dy", ".35em")
-  .text("UCR Part 3 Crime");
 
-  
+// Handmade legend
+svg.append("circle").attr("cx",200).attr("cy",130).attr("r", 6).style("fill", "#69b3a2");
+svg.append("circle").attr("cx",200).attr("cy",160).attr("r", 6).style("fill", "#404080");
+svg.append("text").attr("x", 220).attr("y", 130).text("variable A").style("font-size", "15px").attr("alignment-baseline","middle");
+svg.append("text").attr("x", 220).attr("y", 160).text("variable B").style("font-size", "15px").attr("alignment-baseline","middle");
