@@ -160,11 +160,12 @@ d3.csv("crime_rate_by_neighborhood_and_type.csv", function (data) {
     legend.append("rect")
     .attr("width", 7)
     .attr("height", 7)
-    .attr("x", width + 22.5)
+    .attr("x", width + 26)
+    .attr("dy", ".35em")
     .attr("fill", color);
 
   legend.append("text")
-    .attr("x", width + 33)
+    .attr("x", width + 36)
     .attr("dy", ".35em")
     .text(function (d) { return d; });
 
