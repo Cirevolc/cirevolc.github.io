@@ -197,3 +197,15 @@ d3.csv("crime_rate_by_neighborhood_and_type.csv", function (data) {
     return "translate(" + x(d[xCat2]) + "," + y(d[yCat]) + ")";
   }
 });
+
+var legend = svg.selectAll(".legend");
+legend.append("rect")
+  .attr("width", 7)
+  .attr("height", 7)
+  .attr("cx", width + 150);
+legend.append("text")
+  .attr("x", width + 156)
+  .attr("dy", ".35em")
+  .text("UCR Part 3 Crime");
+
+  
