@@ -146,6 +146,22 @@ d3.csv("crime_rate_by_neighborhood_and_type.csv", function (data) {
     .on("mouseover", tip2.show)
     .on("mouseout", tip2.hide);
 
+  var legend = svg.selectAll(".legend")
+    .data(color.domain())
+    .enter().append("g")
+    .classed("legend", true)
+    .attr("transform", function (d, i) { return "translate(0," + i * 20 + ")"; });
+
+  legend.append("circle")
+    .attr("r", 3.5)
+    .attr("cx", width + 20)
+    .attr("fill", color);
+
+  legend.append("text")
+    .attr("x", width + 26)
+    .attr("dy", ".35em")
+    .text(function (d) { return d; });
+
   function zoom() {
     svg.select(".x.axis").call(xAxis);
     svg.select(".y.axis").call(yAxis);
@@ -169,7 +185,7 @@ d3.csv("crime_rate_by_neighborhood_and_type.csv", function (data) {
 var svg = d3.select("#my_dataviz");
 
 // Handmade legend
-svg.append("circle").attr("cx",200).attr("cy",30).attr("r", 6).style("fill", "#69b3a2");
-svg.append("rect").attr("x",294).attr("y",54).attr("width", 12).attr("height", 12).style("fill", "#69b3a2");
-svg.append("text").attr("x", 220).attr("y", 30).text("Crime of Part 1").style("font-size", "15px").attr("alignment-baseline","middle");
-svg.append("text").attr("x", 320).attr("y", 60).text("Crime of Part 3").style("font-size", "15px").attr("alignment-baseline","middle");
+svg.append("circle").attr("cx", 200).attr("cy", 30).attr("r", 6).style("fill", "#69b3a2");
+svg.append("rect").attr("x", 294).attr("y", 54).attr("width", 12).attr("height", 12).style("fill", "#69b3a2");
+svg.append("text").attr("x", 220).attr("y", 30).text("Crime of Part 1").style("font-size", "15px").attr("alignment-baseline", "middle");
+svg.append("text").attr("x", 320).attr("y", 60).text("Crime of Part 3").style("font-size", "15px").attr("alignment-baseline", "middle");
