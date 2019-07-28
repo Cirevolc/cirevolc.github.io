@@ -166,7 +166,7 @@ d3.csv("crime_rate_by_neighborhood_and_type.csv", function (data) {
   }
 });
 // select the svg area
-var svg = d3.select("#scatter");
+var svg = d3.select("#my_dataviz");
 
 // Handmade legend
 svg.append("circle").attr("cx",200).attr("cy",130).attr("r", 6).style("fill", "#69b3a2");
