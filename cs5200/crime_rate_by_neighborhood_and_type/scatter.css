@@ -1,3 +1,11 @@
+#scatter {
+  display:inline-block;
+}
+
+#my_dataviz {
+  display:inline-block;
+}
+
 rect {
   fill: transparent;
   shape-rendering: crispEdges;
@@ -18,6 +26,10 @@ rect {
 }
 
 .dot {
+  fill-opacity: .5;
+}
+
+.dot2 {
   fill-opacity: .5;
 }
 
