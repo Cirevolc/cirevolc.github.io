@@ -226,7 +226,8 @@
                         .text("Zip code: " + d.properties.ZIP5 + "  " + "Crime rate: " + crimeRate(d));
 
                     // Function to draw two charts.
-                    drawCharts2(d.properties.ZIP5, "#svg2");
+                    drawCharts2(d.properties.ZIP5);
+                    drawCharts3(d.properties.ZIP5);
                 })
                 .on("mouseleave", function (d) {
                     d3.select(this)
@@ -240,6 +241,7 @@
 
                     // Function to remove two charts.
                     destroyCharts2();
+                    destroyCharts3();
                 });
 
             console.log(boston);
