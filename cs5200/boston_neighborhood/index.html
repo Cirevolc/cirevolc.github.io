@@ -89,7 +89,7 @@
                 .attr("height", function(row) { return height - y(row.crime_rate); });
             
             svg2.append("g").attr("transform", "translate(0," + height + ")").call(d3.axisBottom(x));
-            // svg2.append("g").call(d3.axisLeft(y));
+            svg2.append("g").call(d3.axisLeft(y));
         }
 
         function destroyCharts(){
