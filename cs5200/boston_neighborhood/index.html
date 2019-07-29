@@ -25,7 +25,8 @@
 </style>
 
 <body>
-    <svg width="960" height="720"></svg>
+    <svg width="960" height="720" id="svg1"></svg>
+    <svg width="960" height="720" id="svg2"></svg>
     <div id='neighborhoodPopover'> </div>
     <script src="https://d3js.org/d3.v4.min.js"></script>
     <script src="https://d3js.org/topojson.v1.min.js"></script>
@@ -35,6 +36,9 @@
 
         d3.csv("crimeRate_by_zipcode_across_UCR.csv", function(data){
             crimeData = data;
+            crimeData.forEach(function (row) {
+                row.crime_rate = +row.crime_rate;
+            });
         });
 
         var color = d3.scaleLinear()
@@ -46,8 +50,7 @@
             var zipcode = d.properties.ZIP5;
             var crime_rate = 0;
             crimeData.forEach(function (row) {
-                if (row.zipcode == zipcode && row.year == "2018"){
-                    row.crime_rate = +row.crime_rate;
+                if (row.zipcode == zipcode && row.year == "2018"){                 
                     crime_rate = crime_rate + row.crime_rate;
                 }
             });
@@ -59,8 +62,33 @@
         }
 
 
+        function drawCharts(d){
+            var margin = {top: 20, right: 20, bottom: 30, left: 40},
+                width = 960 - margin.left - margin.right,
+                height = 720 - margin.top - margin.bottom;
+            var x = d3.scaleBand().range([0, width]).padding(0.1);
+            var y = d3.scaleLinear().range([height, 0]);
+            var data = crimeData.filter(function (row) { return row.zipcode == d.properties.ZIP5 && row.year == "2018"; });
+            x.domain(data.map(function(row) { return row.UCR_PART; }));
+            y.domain([0, d3.max(data, function(row) { return row.crime_rate; })]);
 
-        var svg = d3.select("svg"),
+            var svg2 = d3.select("#svg2");
+            svg2.selectAll(".bar")
+                .data(data)
+                .enter().append("rect")
+                .attr("class", "bar")
+                .attr("x", function(d) { return x(d.UCR_PART); })
+                .attr("width", x.bandwidth())
+                .attr("y", function(d) { return y(d.crime_rate); })
+                .attr("height", function(d) { return height - y(d.crime_rate); });
+        }
+
+        function destroyCharts(){
+            var svg2 = d3.select("#svg2");
+            svg2.selectAll("*").remove();
+        }
+
+        var svg = d3.select("#svg1"),
             width = +svg.attr("width"),
             height = +svg.attr("height");
 
@@ -92,6 +120,8 @@
                         .style("top", (d3.event.pageY) + "px")
                         .text("Zip code: " + d.properties.ZIP5 + "  " + "Crime rate: " + crimeRate(d));
 
+                    // Function to draw two charts.
+                    drawCharts(d);
                 })
                 .on("mouseleave", function (d) {
                     d3.select(this)
@@ -102,6 +132,9 @@
                     d3.select("#neighborhoodPopover")
                         .transition()
                         .style("opacity", 0);
+
+                    // Function to remove two charts.
+                    destroyCharts();
                 });
 
             console.log(boston);
