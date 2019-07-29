@@ -31,7 +31,11 @@
     <script src="https://d3js.org/topojson.v1.min.js"></script>
     <script>
 
+        var crimeData;
 
+        d3.csv("crimeRate_by_zipcode_across_UCR.csv", function(data){
+            crimeData = data;
+        });
 
         var color = d3.scaleLinear()
             .domain([0, 1])
@@ -39,14 +43,20 @@
             .range(['#fff', '#1d5959']);
 
         function crimeRate(d) {
-            var n = 0.5;
-            return n ? n : 0;
+            var zipcode = d.properties.ZIP5;
+            var crime_rate = 0;
+            crimeData.forEach(function (row) {
+                if (row.zipcode == zipcode && row.year == "2018"){
+                    row.crime_rate = +row.crime_rate;
+                    crime_rate = crime_rate + row.crime_rate;
+                }
+            });
+            return crime_rate;
             // according to d.properties.ZIP5, return corresponding crime rate of year 2018
         }
 
         function fillFn(d) {
-            return color(0.5);
-            // return color(crimeRate(d));
+            return color(crimeRate(d));
         }
 
 
@@ -81,7 +91,7 @@
                         .style("opacity", 1)
                         .style("left", (d3.event.pageX) + "px")
                         .style("top", (d3.event.pageY) + "px")
-                        .text(d.properties.ZIP5);
+                        .text(d.properties.ZIP5 + "<br>" + "Crime rate: " + crimeRate(d));
 
                 })
                 .on("mouseleave", function (d) {
