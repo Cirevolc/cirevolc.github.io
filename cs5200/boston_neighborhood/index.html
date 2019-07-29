@@ -77,16 +77,17 @@
                         .style("opacity", 1)
                         .style("left", (d3.event.pageX) + "px")
                         .style("top", (d3.event.pageY) + "px")
-                        .text(d.properties.ZIP5);
+                        .text(d.properties.ZIP5)
+                        .attr("name", "neighborhoodPopoverText");
 
                 })
                 .on("mouseleave", function (d) {
                     d3.select(this)
                         .style("stroke-width", .25)
-                        .style("stroke-dasharray", 1);
+                        .style("stroke-dasharray", 1)
+                        .style('fill', fillFn);
 
-                    d3.select("#neighborhoodPopover")
-                        .selectAll("text")
+                    d3.select("#neighborhoodPopoverText")
                         .transition()
                         .style("opacity", 0)
                         .remove();
