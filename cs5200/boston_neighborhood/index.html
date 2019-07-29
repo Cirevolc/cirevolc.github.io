@@ -30,7 +30,7 @@
 
 <body>
     <svg width="620" height="480" id="svg1"></svg>
-    <!-- <svg width="480" height="360" id="svg2"></svg> -->
+    <svg width="480" height="360" id="svg2"></svg>
     <svg width="480" height="360" id="svg3"></svg>
     <div id='neighborhoodPopover'> </div>
     <script src="https://d3js.org/d3.v4.min.js"></script>
@@ -70,8 +70,8 @@
         function drawCharts2(zip_code) {
             // set the dimensions and margins of the graph
             var margin = { top: 20, right: 20, bottom: 30, left: 40 },
-                width = 640 - margin.left - margin.right,
-                height = 200 - margin.top - margin.bottom;
+                width = 480 - margin.left - margin.right,
+                height = 360 - margin.top - margin.bottom;
 
             // set the ranges
             var x = d3.scaleBand()
@@ -133,8 +133,8 @@
         function drawCharts3(zip_code) {
             // set the dimensions and margins of the graph
             var margin = { top: 20, right: 20, bottom: 30, left: 40 },
-                width = 640 - margin.left - margin.right,
-                height = 200 - margin.top - margin.bottom;
+                width = 480 - margin.left - margin.right,
+                height = 360 - margin.top - margin.bottom;
 
             // set the ranges
             var x = d3.scaleBand()
@@ -232,7 +232,7 @@
                         .text("Zip code: " + d.properties.ZIP5 + "  " + "Crime rate: " + crimeRate(d));
 
                     // Function to draw two charts.
-                    // drawCharts2(d.properties.ZIP5);
+                    drawCharts2(d.properties.ZIP5);
                     drawCharts3(d.properties.ZIP5);
                 })
                 .on("mouseleave", function (d) {
@@ -246,7 +246,7 @@
                         .style("opacity", 0);
 
                     // Function to remove two charts.
-                    // destroyCharts2();
+                    destroyCharts2();
                     destroyCharts3();
                 });
 
