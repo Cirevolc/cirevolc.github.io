@@ -55,7 +55,7 @@
             var zipcode = d.properties.ZIP5;
             var crime_rate = 0;
             crimeData.forEach(function (row) {
-                if (row.zipcode == zipcode && row.year == "2018") {
+                if (row.zipcode == zipcode && row.year == "2017") {
                     crime_rate = crime_rate + row.crime_rate;
                 }
             });
@@ -97,7 +97,7 @@
                     d.crime_rate = +d.crime_rate;
                 });
 
-                data = data.filter(function (d) { return d.zipcode == zip_code && d.year == "2018"; });
+                data = data.filter(function (d) { return d.zipcode == zip_code && d.year == "2017"; });
 
                 // Scale the range of the data in the domains
                 x.domain(data.map(function (d) { return d.UCR_PART; }));
@@ -160,7 +160,7 @@
                     d.crime_rate = +d.crime_rate;
                 });
 
-                data = data.filter(function (d) { return d.zipcode == zip_code && d.year == "2018"; });
+                data = data.filter(function (d) { return d.zipcode == zip_code && d.year == "2017"; });
 
                 // Scale the range of the data in the domains
                 x.domain(data.map(function (d) { return d.month; }));
