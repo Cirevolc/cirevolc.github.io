@@ -85,9 +85,11 @@
                         .style("stroke-width", .25)
                         .style("stroke-dasharray", 1)
 
-                    d3.select("#cneighborhoodPopoverountyText")
+                    d3.select("#neighborhoodPopover")
+                        .selectAll("text")
                         .transition()
-                        .style("opacity", 0);
+                        .style("opacity", 0)
+                        .remove();
                 });
 
             console.log(nyc);
