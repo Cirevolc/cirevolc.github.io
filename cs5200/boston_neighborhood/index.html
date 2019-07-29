@@ -51,8 +51,7 @@
                     crime_rate = crime_rate + row.crime_rate;
                 }
             });
-            return crime_rate;
-            // according to d.properties.ZIP5, return corresponding crime rate of year 2018
+            return crime_rate.toFixed(4);
         }
 
         function fillFn(d) {
