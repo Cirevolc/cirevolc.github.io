@@ -31,6 +31,8 @@
     <script src="https://d3js.org/topojson.v1.min.js"></script>
     <script>
 
+
+
         var color = d3.scaleLinear()
             .domain([0, 1])
             .clamp(true)
@@ -47,21 +49,23 @@
             // return color(crimeRate(d));
         }
 
+
+
         var svg = d3.select("svg"),
             width = +svg.attr("width"),
             height = +svg.attr("height");
 
-        d3.json("ZIP_Codes.geojson", function (error, nyc) {
+        d3.json("ZIP_Codes.geojson", function (error, boston) {
             if (error) throw error;
 
             var path = d3.geoPath()
                 .projection(d3.geoConicConformal()
                     .parallels([33, 45])
-                    .rotate([96, -39])
-                    .fitSize([width, height], nyc));
+                    // .rotate([96, -39])
+                    .fitSize([width, height], boston));
 
             svg.selectAll("path")
-                .data(nyc.features)
+                .data(boston.features)
                 .enter().append("path")
                 .attr("d", path)
                 .style('fill', fillFn)
@@ -91,7 +95,7 @@
                         .style("opacity", 0);
                 });
 
-            console.log(nyc);
+            console.log(boston);
         });
 
     </script>
