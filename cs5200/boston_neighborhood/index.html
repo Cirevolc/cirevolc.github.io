@@ -60,8 +60,8 @@
 
             var path = d3.geoPath()
                 .projection(d3.geoConicConformal()
-                    // .parallels([33, 45])
-                    // .rotate([96, -39])
+                    .parallels([33, 45])
+                    .rotate([96, -39])
                     .fitSize([width, height], boston));
 
             svg.selectAll("path")
