@@ -67,7 +67,7 @@
         }
 
 
-        function drawCharts() {
+        function drawCharts(zip_code) {
             // set the dimensions and margins of the graph
             var margin = { top: 20, right: 20, bottom: 30, left: 40 },
                 width = 960 - margin.left - margin.right,
@@ -97,7 +97,7 @@
                     d.crime_rate = +d.crime_rate;
                 });
 
-                data = data.filter(function (d) { return d.zipcode == "02026" && d.year == "2018"; });
+                data = data.filter(function (d) { return d.zipcode == zip_code && d.year == "2018"; });
 
                 // Scale the range of the data in the domains
                 x.domain(data.map(function (d) { return d.UCR_PART; }));
@@ -163,7 +163,7 @@
                         .text("Zip code: " + d.properties.ZIP5 + "  " + "Crime rate: " + crimeRate(d));
 
                     // Function to draw two charts.
-                    drawCharts();
+                    drawCharts(d.properties.ZIP5);
                 })
                 .on("mouseleave", function (d) {
                     d3.select(this)
