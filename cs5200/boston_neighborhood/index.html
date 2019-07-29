@@ -179,13 +179,7 @@
                 // add the x Axis
                 svg.append("g")
                     .attr("transform", "translate(0," + height + ")")
-                    .call(d3.axisBottom(x))
-                    .append("text")
-                    .classed("label", true)
-                    .attr("x", width)
-                    .attr("y", margin.bottom - 10)
-                    .style("text-anchor", "end")
-                    .text("Month");
+                    .call(d3.axisBottom(x));
 
                 // add the y Axis
                 svg.append("g")
