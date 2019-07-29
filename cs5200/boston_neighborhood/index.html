@@ -29,9 +29,9 @@
 </style>
 
 <body>
-    <svg width="960" height="720" id="svg1"></svg>
-    <svg width="660" height="360" id="svg2"></svg>
-    <svg width="660" height="360" id="svg3"></svg>
+    <svg width="640" height="480" id="svg1"></svg>
+    <svg width="640" height="200" id="svg2"></svg>
+    <svg width="640" height="200" id="svg3"></svg>
     <div id='neighborhoodPopover'> </div>
     <script src="https://d3js.org/d3.v4.min.js"></script>
     <script src="https://d3js.org/topojson.v1.min.js"></script>
@@ -70,8 +70,8 @@
         function drawCharts2(zip_code) {
             // set the dimensions and margins of the graph
             var margin = { top: 20, right: 20, bottom: 30, left: 40 },
-                width = 660 - margin.left - margin.right,
-                height = 360 - margin.top - margin.bottom;
+                width = 640 - margin.left - margin.right,
+                height = 200 - margin.top - margin.bottom;
 
             // set the ranges
             var x = d3.scaleBand()
@@ -133,8 +133,8 @@
         function drawCharts3(zip_code) {
             // set the dimensions and margins of the graph
             var margin = { top: 20, right: 20, bottom: 30, left: 40 },
-                width = 660 - margin.left - margin.right,
-                height = 360 - margin.top - margin.bottom;
+                width = 640 - margin.left - margin.right,
+                height = 200 - margin.top - margin.bottom;
 
             // set the ranges
             var x = d3.scaleBand()
