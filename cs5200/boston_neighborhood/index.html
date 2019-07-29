@@ -122,6 +122,12 @@
                 svg.append("g")
                     .call(d3.axisLeft(y));
 
+                svg.append("text")
+                    .attr("x", 400 / 2)
+                    .attr("y", 10)
+                    .style("font-size", "20px")
+                    .text("Crime Rate By Type");
+
             });
         }
 
@@ -184,6 +190,12 @@
                 // add the y Axis
                 svg.append("g")
                     .call(d3.axisLeft(y));
+
+                svg.append("text")
+                    .attr("x", 400 / 2)
+                    .attr("y", 10)
+                    .style("font-size", "20px")
+                    .text("Crime Rate By Month");
 
             });
         }
