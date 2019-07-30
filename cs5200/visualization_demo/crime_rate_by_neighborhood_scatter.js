@@ -4,10 +4,10 @@ var margin = { top: 50, right: 300, bottom: 50, left: 50 },
     width = outerWidth - margin.left - margin.right,
     height = outerHeight - margin.top - margin.bottom;
 
-var x = d3.scale.linear()
+var x = d3.scaleLinear()
     .range([0, width]).nice();
 
-var y = d3.scale.linear()
+var y = d3.scaleLinear()
     .range([height, 0]).nice();
 
 var xCat = "Neighborhood",
