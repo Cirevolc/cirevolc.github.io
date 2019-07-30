@@ -60,7 +60,8 @@
     <h2 align="center" class="pg-h2" id="drop_down_display2">
         Average price of property:
     </h2>
-    <svg width="960" height="720" id="svg1"></svg>
+    <div id="crime_rate_by_neighborhood_scatter" align="center"></div>
+    <script src="crime_rate_by_neighborhood_scatter.js" charset="utf-8"></script>
     <script>
         function dropDownCallBack() {
             d3.csv("crime_rate_by_neighborhood.csv", function (data) {
