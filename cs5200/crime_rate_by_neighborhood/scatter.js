@@ -4,10 +4,10 @@ var margin = { top: 50, right: 300, bottom: 50, left: 50 },
     width = outerWidth - margin.left - margin.right,
     height = outerHeight - margin.top - margin.bottom;
 
-var x = d3.scale.linear()
+var x = d3.scaleLinear()
     .range([0, width]).nice();
 
-var y = d3.scale.linear()
+var y = d3.scaleLinear()
     .range([height, 0]).nice();
 
 var xCat = "Neighborhood",
@@ -31,15 +31,19 @@ d3.csv("crime_rate_by_neighborhood.csv", function(data) {
   x.domain([xMin, xMax]);
   y.domain([yMin, yMax]);
 
-  var xAxis = d3.svg.axis()
-      .scale(x)
-      .orient("bottom")
-      .tickSize(-height);
+  // var xAxis = d3.svg.axis()
+  //     .scale(x)
+  //     .orient("bottom")
+  //     .tickSize(-height);
 
-  var yAxis = d3.svg.axis()
-      .scale(y)
-      .orient("left")
-      .tickSize(-width);
+  var xAxis = d3.axisBottom(x).tickSize(-height);
+
+  // var yAxis = d3.svg.axis()
+  //     .scale(y)
+  //     .orient("left")
+  //     .tickSize(-width);
+
+  var yAxis = d3.axisLeft(y).tickSize(-width);
 
   var color = d3.scale.category20();
 
