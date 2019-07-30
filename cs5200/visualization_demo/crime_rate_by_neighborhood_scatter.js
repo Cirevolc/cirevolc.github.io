@@ -105,19 +105,6 @@ d3.csv("crime_rate_by_neighborhood.csv", function (data) {
     .attr("transform", "translate(0," + height + ")");
 
   objects.append("svg:line")
-    .classed("axisLine hAxisLine", true)
-    .attr("x1", 0)
-    .attr("y1", 0)
-    .attr("x2", width)
-    .attr("y2", 0)
-    .attr("transform", "translate(0," + height * 0.575 + ")");
-
-  objects.append("text")
-    .attr("x", width - 50)
-    .attr("y", height * 0.575)
-    .text("Average crime rate: 0.072");
-
-  objects.append("svg:line")
     .classed("axisLine vAxisLine", true)
     .attr("x1", 0)
     .attr("y1", 0)
