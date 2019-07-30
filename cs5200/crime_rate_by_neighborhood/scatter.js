@@ -55,8 +55,8 @@ d3.csv("crime_rate_by_neighborhood.csv", function(data) {
       });
 
   var zoomBeh = d3.zoom()
-      .x(x)
-      .y(y)
+      // .x(x)
+      // .y(y)
       .scaleExtent([0, 500])
       .on("zoom", zoom);
 
