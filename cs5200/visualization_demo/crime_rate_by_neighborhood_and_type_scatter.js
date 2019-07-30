@@ -39,7 +39,7 @@ d3.csv("crime_rate_by_neighborhood_and_type.csv", function (data) {
   //   .orient("bottom")
   //   .tickSize(-height);
 
-  var xAxis = d3.axisTop(x).tickSize(-height);
+  var xAxis = d3.axisBottom(x).tickSize(-height);
 
   // var yAxis = d3.svg.axis()
   //   .scale(y)
