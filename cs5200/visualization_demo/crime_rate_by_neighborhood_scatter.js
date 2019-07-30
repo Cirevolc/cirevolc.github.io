@@ -96,13 +96,13 @@ d3.csv("crime_rate_by_neighborhood.csv", function (data) {
     .attr("width", width)
     .attr("height", height);
 
-  objects.append("svg:line")
-    .classed("axisLine hAxisLine", true)
-    .attr("x1", 0)
-    .attr("y1", 0)
-    .attr("x2", width)
-    .attr("y2", 0)
-    .attr("transform", "translate(0," + height + ")");
+  // objects.append("svg:line")
+  //   .classed("axisLine hAxisLine", true)
+  //   .attr("x1", 0)
+  //   .attr("y1", 0)
+  //   .attr("x2", width)
+  //   .attr("y2", 0)
+  //   .attr("transform", "translate(0," + height + ")");
 
   objects.append("svg:line")
     .classed("axisLine vAxisLine", true)
