@@ -1,20 +1,20 @@
-var margin = { top: 50, right: 300, bottom: 50, left: 50 },
-  outerWidth = 1050,
-  outerHeight = 500,
-  width = outerWidth - margin.left - margin.right,
-  height = outerHeight - margin.top - margin.bottom;
+// var margin = { top: 50, right: 300, bottom: 50, left: 50 },
+//   outerWidth = 1050,
+//   outerHeight = 500,
+//   width = outerWidth - margin.left - margin.right,
+//   height = outerHeight - margin.top - margin.bottom;
 
-var x = d3.scaleLinear()
-  .range([0, width]).nice();
+// var x = d3.scaleLinear()
+//   .range([0, width]).nice();
 
-var y = d3.scaleLinear()
-  .range([height, 0]).nice();
+// var y = d3.scaleLinear()
+//   .range([height, 0]).nice();
 
-var xCat = "UCR part1 rate",
-  xCat2 = "UCR part3 rate",
-  yCat = "Avg. Crime Rate By Neighborhood",
-  rCat = 5,
-  colorCat = "Neighborhood";
+// var xCat = "UCR part1 rate",
+//   xCat2 = "UCR part3 rate",
+//   yCat = "Avg. Crime Rate By Neighborhood",
+//   rCat = 5,
+//   colorCat = "Neighborhood";
 
 d3.csv("crime_rate_by_neighborhood_and_type.csv", function (data) {
   data.forEach(function (d) {
@@ -54,14 +54,14 @@ d3.csv("crime_rate_by_neighborhood_and_type.csv", function (data) {
     .attr("class", "d3-tip")
     .offset([-10, 0])
     .html(function (d) {
-      return colorCat + ": " + d[colorCat] + "<br>" + xCat + ": " + d[xCat] + "<br>" + yCat + ": " + d[yCat];
+      return colorCat_type + ": " + d[colorCat_type] + "<br>" + xCat_type + ": " + d[xCat_type] + "<br>" + yCat_type + ": " + d[yCat_type];
     });
 
   var tip2 = d3.tip()
     .attr("class", "d3-tip")
     .offset([-10, 0])
     .html(function (d) {
-      return colorCat + ": " + d[colorCat] + "<br>" + xCat2 + ": " + d[xCat2] + "<br>" + yCat + ": " + d[yCat];
+      return colorCat_type + ": " + d[colorCat_type] + "<br>" + xCat2_type + ": " + d[xCat2_type] + "<br>" + yCat_type + ": " + d[yCat_type];
     });
 
   var svg = d3.select("#crime_rate_by_neighborhood_and_type_scatter")
@@ -126,7 +126,7 @@ d3.csv("crime_rate_by_neighborhood_and_type.csv", function (data) {
     .classed("dot", true)
     .attr("r", function (d) { return 8; })
     .attr("transform", transform)
-    .style("fill", function (d) { return color(d[colorCat]); })
+    .style("fill", function (d) { return color(d[colorCat_type]); })
     .on("mouseover", tip.show)
     .on("mouseout", tip.hide);
 
@@ -139,7 +139,7 @@ d3.csv("crime_rate_by_neighborhood_and_type.csv", function (data) {
     .attr("width", 16)
     .attr("height", 16)
     .attr("transform", transform2)
-    .style("fill", function (d) { return color(d[colorCat]); })
+    .style("fill", function (d) { return color(d[colorCat_type]); })
     .on("mouseover", tip2.show)
     .on("mouseout", tip2.hide);
 
@@ -160,11 +160,11 @@ d3.csv("crime_rate_by_neighborhood_and_type.csv", function (data) {
     .text(function (d) { return d; });
 
   function transform(d) {
-    return "translate(" + x(d[xCat]) + "," + y(d[yCat]) + ")";
+    return "translate(" + x(d[xCat_type]) + "," + y(d[yCat_type]) + ")";
   }
 
   function transform2(d) {
-    return "translate(" + x(d[xCat2]) + "," + y(d[yCat]) + ")";
+    return "translate(" + x(d[xCat2_type]) + "," + y(d[yCat_type]) + ")";
   }
 });
 // select the svg area

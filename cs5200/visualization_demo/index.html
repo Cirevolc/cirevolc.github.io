@@ -87,6 +87,30 @@
             });
         }
     </script>
+    <script>
+        var margin = { top: 50, right: 300, bottom: 50, left: 50 },
+            outerWidth = 1050,
+            outerHeight = 500,
+            width = outerWidth - margin.left - margin.right,
+            height = outerHeight - margin.top - margin.bottom;
+
+        var x = d3.scaleLinear()
+            .range([0, width]).nice();
+
+        var y = d3.scaleLinear()
+            .range([height, 0]).nice();
+
+        var xCat = "Neighborhood",
+            yCat = "Crime Rate By Neighborhood",
+            rCat = 5,
+            colorCat = "Neighborhood";
+
+        var xCat_type = "UCR part1 rate",
+            xCat2_type = "UCR part3 rate",
+            yCat_type = "Avg. Crime Rate By Neighborhood",
+            rCat_type = 5,
+            colorCat_type = "Neighborhood";
+    </script>
     <script src="crime_rate_by_neighborhood_scatter.js" charset="utf-8"></script>
     <script src="crime_rate_by_neighborhood_and_type_scatter.js" charset="utf-8"></script>
 </body>
