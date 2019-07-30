@@ -23,7 +23,7 @@ d3.csv("crime_rate_by_neighborhood_and_type.csv", function (data) {
     d["Avg. Crime Rate By Neighborhood"] = +d["Avg. Crime Rate By Neighborhood"];
   });
 
-  var xMax = 0.3,
+  var xMax = 1,
     xMin = -0.1,
     yMax = 0.3,
     yMin = -0.1;
