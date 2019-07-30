@@ -22,7 +22,7 @@ d3.csv("crime_rate_by_neighborhood.csv", function(data) {
 
   var xMax = 1,
       xMin = -1,
-      yMax = 1,
+      yMax = 0.3,
       yMin = -0.1;
       // yMax = d3.max(data, function(d) { return d[yCat]; }) * 1.05,
       // yMin = d3.min(data, function(d) { return d[yCat]; }),
@@ -54,19 +54,12 @@ d3.csv("crime_rate_by_neighborhood.csv", function(data) {
         return xCat + ": " + d[xCat] + "<br>" + yCat + ": " + d[yCat];
       });
 
-  var zoomBeh = d3.zoom()
-      // .x(x)
-      // .y(y)
-      .scaleExtent([0, 500])
-      .on("zoom", zoom);
-
   var svg = d3.select("#crime_rate_by_neighborhood_scatter")
     .append("svg")
       .attr("width", outerWidth)
       .attr("height", outerHeight)
     .append("g")
-      .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
-      .call(zoomBeh);
+      .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
   svg.call(tip);
 
@@ -144,14 +137,6 @@ d3.csv("crime_rate_by_neighborhood.csv", function(data) {
       .attr("x", width + 26)
       .attr("dy", ".35em")
       .text(function(d) { return d; });
-
-  function zoom() {
-    svg.select(".x.axis").call(xAxis);
-    svg.select(".y.axis").call(yAxis);
-
-    svg.selectAll(".dot")
-        .attr("transform", transform);
-  }
 
   function transform(d) {
     return "translate(" + x(Math.random() * 0.1) + "," + y(d[yCat]) + ")";
