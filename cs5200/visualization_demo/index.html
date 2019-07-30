@@ -4,6 +4,7 @@
 
 <head>
     <title>A Visualization Demo of Crime Data in Boston</title>
+    <link rel="stylesheet" href="crime_rate_by_neighborhood_scatter.css" charset="utf-8">
     <script src="https://d3js.org/d3.v4.min.js" charset="utf-8"></script>
     <style>
         .pg-h1 {
@@ -60,6 +61,9 @@
     <h2 align="center" class="pg-h2" id="drop_down_display2">
         Average price of property:
     </h2>
+    <div align="center" id="crime_rate_by_neighborhood_scatter"></div>
+    <script src="crime_rate_by_neighborhood_scatter.js" charset="utf-8"></script>
+    <script src="d3-tip.js"></script>
     <script>
         function dropDownCallBack() {
             d3.csv("crime_rate_by_neighborhood.csv", function (data) {

@@ -60,7 +60,7 @@ d3.csv("crime_rate_by_neighborhood.csv", function(data) {
       .scaleExtent([0, 500])
       .on("zoom", zoom);
 
-  var svg = d3.select("#scatter")
+  var svg = d3.select("#crime_rate_by_neighborhood_scatter")
     .append("svg")
       .attr("width", outerWidth)
       .attr("height", outerHeight)
