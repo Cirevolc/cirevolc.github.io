@@ -6,6 +6,7 @@
     <title>A Visualization Demo of Crime Data in Boston</title>
     <link rel="stylesheet" href="crime_rate_by_neighborhood_scatter.css" charset="utf-8">
     <script src="https://d3js.org/d3.v4.min.js" charset="utf-8"></script>
+    <script src="d3-tip.js"></script>
     <style>
         .pg-h1 {
             font: 30px "Hiragino Sans GB", "STHeiti", "Microsoft YaHei", SimHei, "Helvetica Neue", Helvetica, Arial, sans-serif !important;
@@ -68,9 +69,6 @@
     <div align="center" id="crime_rate_by_neighborhood_scatter"></div>
     <div align="center"><svg id="my_dataviz" height=42 width=800></svg></div>
     <div align="center" id="crime_rate_by_neighborhood_and_type_scatter"></div>
-    <script src="d3-tip.js"></script>
-    <script src="crime_rate_by_neighborhood_and_type_scatter.js" charset="utf-8"></script>
-    <script src="crime_rate_by_neighborhood_scatter.js" charset="utf-8"></script>
     <script>
         function dropDownCallBack() {
             d3.csv("crime_rate_by_neighborhood.csv", function (data) {
@@ -89,6 +87,8 @@
             });
         }
     </script>
+    <script src="crime_rate_by_neighborhood_scatter.js" charset="utf-8"></script>
+    <script src="crime_rate_by_neighborhood_and_type_scatter.js" charset="utf-8"></script>
 </body>
 
 </html>
