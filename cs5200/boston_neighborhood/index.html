@@ -221,7 +221,7 @@
         d3.json("ZIP_Codes.geojson", function (error, boston) {
             if (error) throw error;
 
-            var path = d3.geoPath()
+            var path = d3.geo.path()
                 .projection(d3.geoConicConformal()
                     .parallels([41 + 43 / 60, 42 + 41 / 60])
                     .rotate([71 + 30 / 60, 0])
