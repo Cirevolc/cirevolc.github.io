@@ -45,7 +45,7 @@ d3.csv("crime_rate_by_neighborhood.csv", function(data) {
 
   var yAxis = d3.axisLeft(y).tickSize(-width);
 
-  var color = d3.scale.category20();
+  var color = d3.scaleOrdinal(d3.schemeCategory20);
 
   var tip = d3.tip()
       .attr("class", "d3-tip")
