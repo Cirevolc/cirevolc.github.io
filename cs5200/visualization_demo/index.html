@@ -73,7 +73,7 @@
             d3.csv("average_price_by_neighborhood.csv", function (data) {
                 data.forEach(function (d) {
                     if (d.area == document.getElementById("neighborhood_select").value) {
-                        document.getElementById("drop_down_display2").innerHTML = "Average price of property: " + d["average_price_per_square_feet"];
+                        document.getElementById("drop_down_display2").innerHTML = "Average price of property: $" + d["average_price_per_square_feet"] + "/sf";
                     }
                 });
             });
