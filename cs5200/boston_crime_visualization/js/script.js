@@ -1,3 +1,30 @@
+function dropDownCallBack() {
+    d3.csv("data/crime_rate_by_neighborhood.csv", function (data) {
+        var flag = 0;
+        data.forEach(function (d) {
+            if (d.Neighborhood == document.getElementById("neighborhood_select").value) {
+                flag = 1;
+                document.getElementById("drop_down_display1").innerHTML = "Crime per 100K population: " + Number(d["Crime Rate By Neighborhood"]).toFixed(4)*100000;
+            }
+        });
+        if(flag == 0){
+            document.getElementById("drop_down_display1").innerHTML = "Crime rate not available" ;
+        }
+    });
+    d3.csv("data/average_price_by_neighborhood.csv", function (data) {
+        var flag = 0;
+        data.forEach(function (d) {
+            if (d.area == document.getElementById("neighborhood_select").value) {
+                flag = 1;
+                document.getElementById("drop_down_display2").innerHTML = "Average price of property: $" + Number(d["average_price_per_square_feet"]).toFixed(2) + "/sf";
+            }
+        });
+        if(flag == 0){
+            document.getElementById("drop_down_display2").innerHTML = "Average price of property not available" ;
+        }
+    });
+}
+
 d3.csv("data/crime_rate_by_neighborhood.csv")
     .row(function (d) {
         return {
@@ -255,7 +282,85 @@ function destroyChartWhole(){
 }
 
 function drawChartArea(){
-    
+    var margin = { top: 50, right: 100, bottom: 50, left: 50 };
+    var outerHeight = 525, outerWidth = document.getElementById("bostonmapdiv").offsetWidth * 0.6;
+    var width = outerWidth - margin.left - margin.right,
+        height = outerHeight - margin.top - margin.bottom;
+    var x = d3.scaleBand()
+        .range([0, width])
+        .padding(0.1);
+    var y = d3.scaleLinear()
+        .range([height, 0]);
+    var svg = d3.select("#bostonchart").attr("width", outerWidth).attr("height", outerHeight)
+        .append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+    d3.csv("data/map/crime_by_quarter_whole_boston.csv", function (error, data) {
+        if (error) throw error;
+
+        data.forEach(function (d) {
+            d.violent_rate = (+d.violent) / 8.6;
+            d.non_violent_rate = (+d.non_violent) / 8.6;
+        });
+
+        x.domain(data.map(function (d) { return d.quarter; }));
+        y.domain([0, d3.max(data, function (d) { return (d.violent_rate + d.non_violent_rate) * 1.1; })]);
+
+        svg.selectAll(".bar-non-violent")
+            .data(data)
+            .enter().append("rect")
+            .attr("class", "bar-non-violent")
+            .attr("x", function (d) { return x(d.quarter); })
+            .attr("width", x.bandwidth())
+            .attr("y", function (d) { return y(d.non_violent_rate); })
+            .attr("height", function (d) { return height - y(d.non_violent_rate); })
+            .attr("fill", "blue")
+            .attr("opacity", "0.5");
+
+        svg.selectAll(".bar-violent")
+            .data(data)
+            .enter().append("rect")
+            .attr("class", "bar-violent")
+            .attr("x", function (d) { return x(d.quarter); })
+            .attr("width", x.bandwidth())
+            .attr("y", function (d) { return y(d.violent_rate) - (height - y(d.non_violent_rate)); })
+            .attr("height", function (d) { return height - y(d.violent_rate); })
+            .attr("fill", "red")
+            .attr("opacity", "0.5");
+
+        svg.append("g")
+            .attr("transform", "translate(0," + height + ")")
+            .call(d3.axisBottom(x));
+
+        svg.append("g")
+            .call(d3.axisLeft(y));
+
+        svg.append("text")
+            .attr("x", 50)
+            .attr("y", 0)
+            .style("font-size", "14px")
+            .text("Crime Per 100K Population By Quarter 2015-2018");
+
+        svg.append("rect")
+            .attr("width", 7)
+            .attr("height", 7)
+            .attr("x", width + 16.5).attr("y", 0)
+            .attr("fill", "red")
+            .attr("opacity", "0.5");
+        svg.append("text")
+            .attr("x", width + 26)
+            .attr("dy", "0.35em")
+            .text("Violent");
+        svg.append("rect")
+            .attr("width", 7)
+            .attr("height", 7)
+            .attr("x", width + 16.5).attr("y", 16.5)
+            .attr("fill", "blue")
+            .attr("opacity", "0.5");
+        svg.append("text")
+            .attr("x", width + 26)
+            .attr("dy", "1.7em")
+            .text("Non-Violent");
+
+    });
 }
 
 var crimeData;
