@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<html lang="en">
+
+<head>
+    <title>Visualization</title>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+    <!-- <link rel="stylesheet" type="text/css" href="css/dc.css" /> -->
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <script src="js/d3.v4.js" charset="utf-8"></script>
+    <script src="js/d3-tip.js" charset="utf-8"></script>
+    <script src="js/d3-scale-chromatic.v1.min.js" charset="utf-8"></script>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Boston Crime Stats 2015-2018</h2>
+        <p>This is some <a href="https://d3js.org">d3.js</a> graphics demonstrating crime rate differences among Boston
+            neighborhoods. This visualization reveals overall crime rate, including both violent and non-violent crime,
+            have been in decline among most of the major neighborhoods in Boston. </p>
+        <p>Public data source <a href="https://data.boston.gov">Analyze Boston</a>.
+        </p>
+        <div id="ca-chart">
+            <strong></br>Crime Rate by Neighborhood Scatter Plot</strong>
+        </div>
+        <div id="scatter1"></div>
+        <div id="scatter2"></div>
+        <div id="map-chart">
+            <strong></br></br></br>Crime Rate by Neighborhood Shown On Map</strong>
+        </div>
+        <div id="bostonmapdiv"><div id='neighborhoodPopover'> </div></div>
+        <div id="map-chart">
+            <strong></br></br></br>These areas account for over 60% of crime cases involved shooting.</strong>
+        </div>
+        <div id="moremap"><div id='neighborhoodPopover2'> </div></div>
+        <script src="js/script.js" charset="utf-8"></script>
+    </div>
+    
+</body>
