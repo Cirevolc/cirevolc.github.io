@@ -281,7 +281,8 @@ function destroyChartWhole(){
     svg.selectAll("*").remove();
 }
 
-function drawChartArea(){
+function drawChartArea(d){
+    var zipcode = d.properties.ZIP5;
     var margin = { top: 50, right: 100, bottom: 50, left: 50 };
     var outerHeight = 525, outerWidth = document.getElementById("bostonmapdiv").offsetWidth * 0.6;
     var width = outerWidth - margin.left - margin.right,
@@ -293,13 +294,17 @@ function drawChartArea(){
         .range([height, 0]);
     var svg = d3.select("#bostonchart").attr("width", outerWidth).attr("height", outerHeight)
         .append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-    d3.csv("data/map/crime_by_quarter_whole_boston.csv", function (error, data) {
+    d3.csv("data/map/crimeRate_by_zipcode_quarter.csv", function (error, data) {
         if (error) throw error;
 
         data.forEach(function (d) {
-            d.violent_rate = (+d.violent) / 8.6;
-            d.non_violent_rate = (+d.non_violent) / 8.6;
+            d.violent_rate = (+d.violent_crime_rate) * 100000;
+            d.non_violent_rate = (+d.non_violent_crime_rate) * 100000;
+            d.year = d.year_[2] + d.year_[3]; 
+            d.quarter = d.year + "Q" + d.quarter_;
         });
+
+        data = data.filter(function(d) {return d.zipcode == zipcode && !(d.quarter == "15Q2") && !(d.quarter == "18Q4");});
 
         x.domain(data.map(function (d) { return d.quarter; }));
         y.domain([0, d3.max(data, function (d) { return (d.violent_rate + d.non_violent_rate) * 1.1; })]);
@@ -445,7 +450,7 @@ d3.json("data/map/ZIP_Codes.geojson", function (error, boston) {
                 .style("top", (d3.event.pageY) + "px")
                 .text("Zip code: " + d.properties.ZIP5 + "\u00A0\u00A0\u00A0 Neighborhood: " + objects[d.properties.ZIP5] + "\u00A0\u00A0\u00A0 Average crime rate per 100K population: " + crimeRate(d));
             destroyChartWhole();
-            drawChartArea();
+            drawChartArea(d);
         })
         .on("mouseout", function (d) {
             d3.select(this)
@@ -468,7 +473,6 @@ d3.json("data/map/ZIP_Codes.geojson", function (error, boston) {
 
 function fillHeatmap(d){
     var zipcode = d.properties.ZIP5;
-    console.log(zipcode);
     var heatZones = ["02121", "02119", "02124", "02126", "02122"];
     if (heatZones.indexOf(zipcode) >= 0){
         return "red";
