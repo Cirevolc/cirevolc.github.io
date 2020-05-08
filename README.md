@@ -1,3 +1,3 @@
 # My personal website hosted using github pages.
 
-## [`karantyagi.github.io`](https://karantyagi.github.io)
+## [`zixuan-liang.github.io`](https://zixuan-liang.github.io)
